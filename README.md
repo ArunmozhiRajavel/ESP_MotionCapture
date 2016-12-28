@@ -2,11 +2,12 @@
 Motion capturing and its translation to a virtual object through cloud using ESP8266 and MPU6050 sensor
 
 ## Essential changes
-Download the ESP8266httpUpdate.cpp file and replace the existing file available at  
+1) Download the ESP8266httpUpdate.cpp file and replace the existing file available at  
 > ..\packages\esp8266\hardware\esp8266\2.3.0\libraries\ESP8266httpUpdate\src
-This changes helps us to publish the status of FOTA to cloudmqtt before the ESP restarts
 
-Replace 
+This change helps us to publish the status of FOTA to cloudmqtt before the ESP restarts
+
+2)Replace 
 ```
 #include <avr/pgmspace.h> 
 ```
@@ -18,6 +19,7 @@ with
  #endif
 ```
 in the following files: MPU6050.h, MPU6050_6Axis_MotionApps20.h, MPU6050_9Axis_MotionApps41.h
+This change is necessary to port MPU6050 arduino library to ESP8266
 
 ## Working prototype video
 
